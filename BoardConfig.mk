@@ -18,6 +18,15 @@ TARGET_OTA_ASSERT_DEVICE := cedric
 # Display
 TARGET_SCREEN_DENSITY := 420
 
+# Dexpreopt
+ifeq ($(HOST_OS),linux)
+  ifneq ($(TARGET_BUILD_VARIANT),eng)
+      WITH_DEXPREOPT := true
+      USE_DEX2OAT_DEBUG := false
+      WITH_DEXPREOPT_DEBUG_INFO := false
+  endif
+endif
+
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 
