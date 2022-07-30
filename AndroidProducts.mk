@@ -16,10 +16,10 @@
 
 PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/lineage_cedric.mk \
-    $(LOCAL_DIR)/lineage_cedric_gms_go.mk
+    $(LOCAL_DIR)/lineage_cedric_go.mk
 
 COMMON_LUNCH_CHOICES := \
     lineage_cedric-user \
     lineage_cedric-userdebug \
     lineage_cedric-eng \
-    lineage_cedric_gms_go-userdebug
+    lineage_cedric_go-userdebug

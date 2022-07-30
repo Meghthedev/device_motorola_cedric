@@ -47,13 +47,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     video.accelerate.hw=1 \
     debug.renderengine.backend=gles
 
-# Screen density
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.sf.lcd_density=280 \
-    persist.graphics.vulkan.disable=true \
-    persist.dbg.ims_volte_enable=1 \
-    persist.dbg.volte_avail_ovr=1 
-
 # Disable buffer age
 PRODUCT_PROPERTY_OVERRIDES += \
     debug.hwui.use_buffer_age=false
@@ -82,10 +75,6 @@ PRODUCT_PACKAGES += \
     android.hardware.gatekeeper@1.0-impl \
     android.hardware.gatekeeper@1.0-service
 
-# Keylayout
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
-
 # Keymaster
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@3.0-impl \
@@ -95,6 +84,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/idc/uinput-fpc.idc:$(TARGET_COPY_OUT_VENDOR)/usr/idc/uinput-fpc.idc
 
+
+# Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
 # Ramdisk
 PRODUCT_PACKAGES += \
@@ -160,7 +153,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.lmk.swap_free_low_percentage=15
 
 # Inherit customized Android Go defaults.
-$(call inherit-product, device/oppo/cedric/go_defaults_custom.mk)
+$(call inherit-product, device/motorola/cedric/go_defaults_custom.mk)
 
 # Setup dalvik vm configs
 $(call inherit-product, frameworks/native/build/phone-hdpi-512-dalvik-heap.mk)
@@ -203,4 +196,3 @@ SKIP_BOOT_JARS_CHECK := true
 
 # Inherit common Android Go defaults.
 $(call inherit-product, build/make/target/product/go_defaults.mk)
-$(call inherit-product, vendor/motorola/cedric/cedric-vendor.mk)
